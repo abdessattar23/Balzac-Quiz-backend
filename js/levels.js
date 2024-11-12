@@ -615,7 +615,7 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
-            
+
             ahref.style.pointerEvents = "none";
             ahref.style.cursor = "not-allowed";
             gotoquiz[i].style.backgroundColor ="gray";
@@ -630,7 +630,6 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
-            
             ahref.style.pointerEvents = "none";
             ahref.style.cursor = "not-allowed";
             gotoquiz[i].style.backgroundColor ="gray";
@@ -645,6 +644,7 @@ function lock() {
             leveltitle.style.textDecoration = "line-through"
 
             let ahref = gotoquiz[i].querySelector("a");
+
             ahref.href ="#";
             
             ahref.style.pointerEvents = "none";
@@ -663,7 +663,7 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
-            
+
             ahref.style.pointerEvents = "none";
             ahref.style.cursor = "not-allowed";
             gotoquiz[i].style.backgroundColor ="gray";
@@ -680,6 +680,7 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
+            ahref.style.pointer
             
             ahref.style.pointerEvents = "none";
             ahref.style.cursor = "not-allowed";
