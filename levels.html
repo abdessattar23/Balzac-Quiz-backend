@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root{
+            --button-color: rgb(30, 30, 253);
+        }
+        .wraper{
+            margin: 0 auto;
+            border:1px solid black;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            width: 742px;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            gap: 20px;
+        }
+        .sub-wraper{
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            border:1px solid black;
+            width: 700px;
+            border-radius: 30px;
+            /* margin-top: 20px; */
+            padding: 20px;
+            text-align: center;
+            >h2{
+                font-size: 2.5rem;
+                /* text-decoration: ; */
+            }
+        }
+        .level{
+            border-radius: 15px;
+            border:1px solid black;
+            width: 100%;
+            margin-top: 10px;
+            background-color: var(--button-color);
+            > a{
+                color: white;
+                text-decoration: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="wraper">
+            <div class="sub-wraper">
+                <h2>Level A1</h2>
+                <div class="level" data-level="A1" data-category="Grammar">
+                    <a href="quizTest.html" ><h3>Grammar</h3></a>
+                </div>
+                <div class="level" data-level="A1" data-category="Vocabulary">
+                    <a href="quizTest.html"><h3>Vocabulary</h3></a>
+                    
+                </div>
+                <div class="level" data-level="A1" data-category="Orthography">
+                    <a href="quizTest.html"><h3>Orthography</h3></a>
+                </div>
+            </div>
+            <div class="sub-wraper">
+                <h2>Level A2</h2>
+                <div class="level" data-level="A2" data-category="Grammar">
+                    <a href="quizTest.html"><h3>Grammar</h3></a>
+                </div>
+                <div class="level" data-level="A2" data-category="Vocabulary">
+                    <a href="quizTest.html"><h3>Vocabulary</h3></a>
+                    
+                </div>
+                <div class="level" data-level="A2" data-category="Orthography">
+                    <a href="quizTest.html"><h3>Orthography</h3></a>
+                </div>
+            </div>
+            <div class="sub-wraper">
+                <h2>Level B1</h2>
+                <div class="level" data-level="B1" data-category="Grammar">
+                    <a href="quizTest.html"><h3>Grammar</h3></a>
+                </div>
+                <div class="level" data-level="B1" data-category="Vocabulary">
+                    <a href="quizTest.html"><h3>Vocabulary</h3></a>
+                    
+                </div>
+                <div class="level" data-level="B1" data-category="Orthography">
+                    <a href="quizTest.html"><h3>Orthography</h3></a>
+                </div>
+            </div>
+            <div class="sub-wraper">
+                <h2>Level B2</h2>
+                <div class="level" data-level="B2" data-category="Grammar">
+                    <a href="quizTest.html"><h3>Grammar</h3></a>
+                </div>
+                <div class="level" data-level="B2" data-category="Vocabulary">
+                    <a href="quizTest.html"><h3>Vocabulary</h3></a>
+                    
+                </div>
+                <div class="level" data-level="B2" data-category="Orthography">
+                    <a href="quizTest.html"><h3>Orthography</h3></a>
+                </div>
+            </div>
+            <div class="sub-wraper">
+                <h2>Level C1</h2>
+                <div class="level" data-level="C1" data-category="Grammar">
+                    <a href="quizTest.html"><h3>Grammar</h3></a>
+                </div>
+                <div class="level" data-level="C1" data-category="Vocabulary">
+                    <a href="quizTest.html"><h3>Vocabulary</h3></a>
+                    
+                </div>
+                <div class="level" data-level="C1" data-category="Orthography">
+                    <a href="quizTest.html"><h3>Orthography</h3></a>
+                </div>
+            </div>
+            <div class="sub-wraper">
+                <h2>Level C2</h2>
+                <div class="level" data-level="C2" data-category="Grammar">
+                    <a href="quizTest.html"><h3>Grammar</h3></a>
+                </div>
+                <div class="level" data-level="C2" data-category="Vocabulary">
+                    <a href="quizTest.html"><h3>Vocabulary</h3></a>
+                    
+                </div>
+                <div class="level" data-level="C2" data-category="Orthography">
+                    <a href="quizTest.html"><h3>Orthography</h3></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/levels.js"></script>
+</body>
+</html>
