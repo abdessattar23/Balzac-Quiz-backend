@@ -615,6 +615,9 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
+
+            ahref.style.pointerEvents = "none";
+            ahref.style.cursor = "not-allowed";
             gotoquiz[i].style.backgroundColor ="gray";
         }
     }
@@ -627,9 +630,10 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
-            ahref.style.pointer
+            ahref.style.pointerEvents = "none";
+            ahref.style.cursor = "not-allowed";
             gotoquiz[i].style.backgroundColor ="gray";
-            
+            gotoquiz[i].style.cursor = "not-allowed";
         }
     }
     else if (user.niveau === 3) {
@@ -640,10 +644,14 @@ function lock() {
             leveltitle.style.textDecoration = "line-through"
 
             let ahref = gotoquiz[i].querySelector("a");
-            ahref.href ="#"
-            ahref.style.pointer
-            gotoquiz[i].style.backgroundColor ="gray";
+
+            ahref.href ="#";
             
+            ahref.style.pointerEvents = "none";
+            ahref.style.cursor = "not-allowed";
+            gotoquiz[i].style.backgroundColor ="gray";
+            gotoquiz[i].style.cursor = "not-allowed";
+
         }
     }
     else if (user.niveau === 4) {
@@ -655,9 +663,12 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
-            ahref.style.pointer
+
+            ahref.style.pointerEvents = "none";
+            ahref.style.cursor = "not-allowed";
             gotoquiz[i].style.backgroundColor ="gray";
-            
+            gotoquiz[i].style.cursor = "not-allowed";
+
         }
     }
     else if (user.niveau === 5) {
@@ -670,8 +681,12 @@ function lock() {
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
             ahref.style.pointer
-            gotoquiz[i].style.backgroundColor ="gray";
             
+            ahref.style.pointerEvents = "none";
+            ahref.style.cursor = "not-allowed";
+            gotoquiz[i].style.backgroundColor ="gray";
+            gotoquiz[i].style.cursor = "not-allowed";
+
         }
     }
 }
