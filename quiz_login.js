@@ -1,56 +1,58 @@
-let user = [
-    {
-        name : "ahmed",
-        id : "1234",
-        niveau : "A1",
-        catégorie : {gramm : false , vocab : false , compréh : false},
-        score: 0,
-        test : []
+// let users = [
+//     {
+//         name : "ahmed",
+//         id : 1234,
+//         niveau : "A1",
+//         categorie : {gramm : false , vocab : false , compreh : false},
+//         score: 0,
+//         test : []
+//     }
+// ]
+let user_list = localStorage.getItem("user_list")
+let users = (user_list)? JSON.parse(user_list) : []
+// let users_list = JSON.parse(localStorage.getItem("user_list")) || [];
+
+console.log(users)
+
+document.getElementById("btn_connexion").onclick = ()=>{
+    let id = parseInt(document.getElementById("identifiant").value);
+    let logged_user = check_user(id);
+    if(logged_user){
+        localStorage.setItem("current_user", JSON.stringify(logged_user));
+        window.location.href = "quiz page";
     }
-]
-
-function check_user(){
-    let logged_user;
-
-    for (let i = 0; i < user.length; i++) {
-        if (user[i].name === user_name && user[i].id === id) {
-            logged_user = user[i];
-            return logged_user;
-        }
-        else{
-            add_user()
-        }
-    }
-
 }
-
-let user_name = document.getElementById("user_name").value ;
-
+// find user by id
+function check_user(id){
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].id === id) {
+            return users[i];
+        }
+    }
+    document.getElementById("erreur_id").style.display = "block";
+}
+// add a new user
 function add_user(user_name, id){
     let new_user = {
         name : user_name,
-        id : generate_id(),
+        id : id,
         niveau : "A1",
-        catégorie : {grammaire : false , vocabulaire : false , compréhsion : false},
+        categorie : {grammaire : false , vocabulaire : false , comprehsion : false},
         score : 0,
     }
-    user.push(new_user);
-    console.log(user);
+    users.push(new_user);
+    localStorage.setItem("user_list", JSON.stringify(users));
+    console.log(users);
 }
 function generate_id(){
-    
-    for(let number = 10000; number <= 19999; number++){
-        let unique_id = Math.floor(Math.random() * number);
-        console.log(unique_id);
-        for(let i = 0; i < user.length; i++){
-            id_exist = false;
-            if(user[i].id === unique_id){
-                id_exist = true;
-                generate_id();
-            }
-            else{
-                return unique_id;
-            }
+    const max_id = 99999, min_id = 1000;
+    let unique_id = Math.floor(Math.random() * (max_id - min_id)) + min_id;
+    for(let i = 0; i < users.length; i++){
+        if(users[i].id === unique_id){
+            return generate_id();
+        }
+        else{
+            return unique_id;
         }
     }
 }
@@ -60,14 +62,18 @@ submit.addEventListener('click', ()=>{
     // console.log(user_name !== "")
         // if(user_name !== ""){
             // console.log("condition");
-            let identifiant = document.getElementById("id_generer");
-            let id = generate_id();
-            document.getElementById("identifiant").value = id;
-            let message = document.createElement("p");
-            message.textContent = "Conservez votre identifiant pour vos prochaines connexions.";
-            identifiant.appendChild(message);
-
-    // }
-},{once : true})
+            // let identifiant = document.getElementById("id_generer");
+            // document.getElementById("identifiant").value = id;
+            // let message = document.createElement("p");
+            // message.textContent = "Conservez votre identifiant pour vos prochaines connexions.";
+            // identifiant.appendChild(message);
+        // }
+    let user_name = document.getElementById("user_name").value;
+    let id = generate_id();
+    if(user_name){
+        add_user(user_name, id);
+        alert(`Votre identifiant est : ${id} \nConserver le pour vos prochaines connexions.`);
+    }
+})
 
 let ccontainerrr
