@@ -34,8 +34,8 @@ allQuests.quests.forEach((q,i)=>{
           </div>
    `
     }
-    
 })
+
 // download rapport
 var element = document.getElementById("body");
-console.log(html2pdf(element))
+// console.log(html2pdf(element))

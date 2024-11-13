@@ -1,5 +1,24 @@
+let user = JSON.parse(localStorage.getItem("user"));
 let questAns = JSON.parse(localStorage.getItem("test"));
-console.log(questAns)
+let selectedlevel = JSON.parse(localStorage.getItem("level"));
+let selectedcategory = JSON.parse(localStorage.getItem("cat"));
+
+let test = {
+    dificulty: selectedlevel,
+    attempts: 1,
+    category: selectedcategory,
+    date: 0,
+    score: 0,
+    rapports: 
+    {
+      quests:questAns.quests,
+      selectedAns :[],
+      correctAns : questAns.correct,
+      answer:questAns.answers,
+    }
+};
+
+
 
 // show diffrent auestion every time
 for (let i = 0; i < questAns.quests.length;i++){
@@ -34,7 +53,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     let htmlCounter = document.querySelector(".counter");
     let interval;
     // asynchrones function to show quest after click on suivant
-    async function showQuests(index){
+    async function showQuests(index){ 
         counter = 20;
         // show questt and answers
         htmlQuest.textContent = questAns.quests[index];
@@ -61,25 +80,29 @@ document.addEventListener("DOMContentLoaded",()=>{
                 ans.addEventListener("click",()=>{
                     // check if clicked is false to skip getting multiple correct answs
                    if (clicked == false){
-        clearInterval(interval);
+                clearInterval(interval);
                     // ans.style.backgroundColor = "#ddd";
                     // check if the answer is correct
                     if (ansIndex == questAns.correct[num]){
                         ans.style.backgroundColor = "green";
                         correctAns++;
+                        test.score++;
                     // set the new total score to loca storage
                     localStorage.setItem("totalScore",correctAns);
                         // add the selected answer to selected in object
                         questAns.selected.push(ansIndex);
+                        test.rapports.selectedAns.push(ansIndex);
                     } else{
                         ans.style.backgroundColor = "red";
                         htmlAnswers[questAns.correct[num]].style.backgroundColor = "green";
                         // add the selected answer to selected in object
                         questAns.selected.push(ansIndex);
+                        test.rapports.selectedAns.push(ansIndex);
                     }
                     // add the selected answer to the local storage
                     localStorage.setItem("allQuests",JSON.stringify(questAns));
                     console.log(JSON.parse(localStorage.getItem("allQuests")));
+                    
                     // get clicked to true to not click the answer another time
                     clicked = true;
                     next.style.cursor = "pointer";
@@ -102,7 +125,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                     htmlAnswers[questAns.correct[num]].style.backgroundColor = "green";
                     next.style.cursor = "pointer";
                     next.style.backgroundColor = "#004BAC";
-                    if (questAns.selected[num] == undefined || questAns.selected[num == null]) {
+                    if (questAns.selected[num] == undefined || questAns.selected[num] == null) {
                         questAns.selected[num] = -1;
                     }
                 }
@@ -118,7 +141,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
     // show questions
     // function to start the quiz and show question one by one
-       async function start(){
+        async function start(){
         while(num < questAns.quests.length){
             await showQuests(num);
                  num++;
@@ -127,11 +150,28 @@ document.addEventListener("DOMContentLoaded",()=>{
                     next.textContent = "See Result";
                     next.style.cursor = "pointer";
                     next.style.backgroundColor = "#004BAC";
+
+                    if (test.score === 10) {
+                        if (selectedcategory == "Vocabulary") {
+                            user.catégorie.vocabulary = true;
+                        } else if (selectedcategory == "Grammar") {
+                            user.catégorie.grammar = true;
+                        } else if (selectedcategory == "Orthography") {
+                            user.catégorie.orthograph = true;
+                        }
+                    }
+
+                    if (user.catégorie.vocabulary && user.catégorie.grammar && user.catégorie.orthograph) {
+                        user.niveau++;
+                    }
+
+                    user.tests.push(test);
+                    localStorage.setItem("user", JSON.stringify(user));
                     next.addEventListener("click",()=>{
                         window.location.href = "./fin.html";
                     })
                 }
-             }
-       }
-       start();
+            }
+        }
+        start();
 })

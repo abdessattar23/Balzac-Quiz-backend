@@ -1,22 +1,32 @@
-let user = {
-        name : "ahmed",
-        id : "123",
-        niveau : 2,
-        catégorie : {gramm : false , vocab : false , compréh : false},
-        tests : [
-            {
-                dificulty: 1,
-                attempts: 1,
-                category: "grammar",
-                date: "",
-                score: 0
-            }
-        ]
-        };
+const user = JSON.parse(localStorage.getItem("logged-user")) || {};
+console.log(user)
+// let user = {
+//     name : "ahmed",
+//     id : "123",
+//     niveau : 2,
+//     catégorie : {grammar : false , vocabulary : false , orthograph : false},
+//     tests : 
+//     [
+//       {
+//         dificulty: 2,
+//         attempts: 1,
+//         category: "",
+//         date: 1731424739919,
+//         score: 0,
+//         rapports: 
+//         {
+//           quests:[],
+//           selectedAns :[],
+//           correctAns : [],
+//           ans:[],
+//         }
+//       }
+//     ]
+//   };
 
         const levels = [
             {
-              level: "A1",
+              level: 1,
               categories: [
                 {
                   name: "Vocabulary",
@@ -114,7 +124,7 @@ let user = {
               ]
             },
             {
-              level: "A2",
+              level: 2,
               categories: [
                 {
                   name: "Vocabulary",
@@ -212,7 +222,7 @@ let user = {
               ]
             },
             {
-              level: "B1",
+              level: 3,
               categories: [
                 {
                   name: "Vocabulary",
@@ -310,7 +320,7 @@ let user = {
               ]
             },
             {
-              level: "B2",
+              level: 4,
               categories: [
                 {
                   name: "Vocabulary",
@@ -408,7 +418,7 @@ let user = {
               ]
             },
             {
-              level: "C1",
+              level: 5,
               categories: [
                 {
                   name: "Vocabulary",
@@ -506,7 +516,7 @@ let user = {
               ]
             },
             {
-              level: "C2",
+              level: "6",
               categories: [
                 {
                   name: "Vocabulary",
@@ -615,7 +625,7 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
-
+            
             ahref.style.pointerEvents = "none";
             ahref.style.cursor = "not-allowed";
             gotoquiz[i].style.backgroundColor ="gray";
@@ -630,6 +640,7 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
+            
             ahref.style.pointerEvents = "none";
             ahref.style.cursor = "not-allowed";
             gotoquiz[i].style.backgroundColor ="gray";
@@ -644,7 +655,6 @@ function lock() {
             leveltitle.style.textDecoration = "line-through"
 
             let ahref = gotoquiz[i].querySelector("a");
-
             ahref.href ="#";
             
             ahref.style.pointerEvents = "none";
@@ -663,7 +673,7 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
-
+            
             ahref.style.pointerEvents = "none";
             ahref.style.cursor = "not-allowed";
             gotoquiz[i].style.backgroundColor ="gray";
@@ -680,7 +690,6 @@ function lock() {
 
             let ahref = gotoquiz[i].querySelector("a");
             ahref.href ="#"
-            ahref.style.pointer
             
             ahref.style.pointerEvents = "none";
             ahref.style.cursor = "not-allowed";
@@ -696,15 +705,29 @@ lock();
 gotoquiz.forEach(link => {
     link.addEventListener("click",(e) => {
         let test;
+        let selectedlevel;
+        let selectedcategory;
+        let loggedaccount;
         const dificulty = link.getAttribute('data-level');            
         const category = link.getAttribute('data-category');  
         
         for (let i = 0; i < levels.length; i++) {
-            if (dificulty === levels[i].level) {
+            if (dificulty == levels[i].level) {
                 for (let y = 0; y < 3; y++) {
                     if (category == levels[i].categories[y].name) {
+                        selectedlevel = levels[i].level;
+                        selectedcategory = levels[i].categories[y].name;
                         test = levels[i].categories[y].questions;
+                        loggedaccount = user;
+
                         localStorage.setItem("test", JSON.stringify(test));
+                        localStorage.setItem("level", JSON.stringify(selectedlevel));
+                        localStorage.setItem("cat", JSON.stringify(selectedcategory));
+                        localStorage.setItem("user", JSON.stringify(loggedaccount));
+
+                        console.log(selectedcategory);
+                        console.log(selectedlevel)
+                        console.log(loggedaccount)
                         return;
                     }
                 }
