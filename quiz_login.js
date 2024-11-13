@@ -75,5 +75,3 @@ submit.addEventListener('click', ()=>{
         alert(`Votre identifiant est : ${id} \nConserver le pour vos prochaines connexions.`);
     }
 })
-
-let ccontainerrr
