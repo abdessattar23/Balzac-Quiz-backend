@@ -19,7 +19,7 @@ document.getElementById("btn_connexion").onclick = ()=>{
     let logged_user = check_user(id);
     if(logged_user){
         localStorage.setItem("current_user", JSON.stringify(logged_user));
-        window.location.href = "quiz page";
+        window.location.href = "http://127.0.0.1:5500/levels.html";
     }
 }
 // find user by id
@@ -45,7 +45,7 @@ function add_user(user_name, id){
     console.log(users);
 }
 function generate_id(){
-    const max_id = 99999, min_id = 1000;
+    const max_id = 9999, min_id = 1000;
     let unique_id = Math.floor(Math.random() * (max_id - min_id)) + min_id;
     for(let i = 0; i < users.length; i++){
         if(users[i].id === unique_id){
@@ -70,8 +70,24 @@ submit.addEventListener('click', ()=>{
         // }
     let user_name = document.getElementById("user_name").value;
     let id = generate_id();
+    // console.log(id);
     if(user_name){
         add_user(user_name, id);
-        alert(`Votre identifiant est : ${id} \nConserver le pour vos prochaines connexions.`);
+        let signup = document.getElementById("signup");
+        let message = document.createElement("p");
+        message.textContent = `Votre identifiant est : ${id} \nConserver le pour vos prochaines connexions.`;
+        signup.appendChild(message);
+        // alert(`Votre identifiant est : ${id} \nConserver le pour vos prochaines connexions.`);
+
     }
+})
+ 
+const togglebtn = document.getElementById("toggle")
+
+togglebtn.addEventListener("click",() => {    
+    const conection = document.getElementById("user_conexion")
+    const signup = document.getElementById("signup");
+    
+    conection.classList.toggle("hide");
+    signup.classList.toggle("hide");
 })
