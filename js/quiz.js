@@ -152,20 +152,25 @@ document.addEventListener("DOMContentLoaded",()=>{
                     next.style.backgroundColor = "#004BAC";
 
                     if (test.score === 10) {
-                        if (selectedcategory == "Vocabulary") {
-                            user.catégorie.vocabulary = true;
-                        } else if (selectedcategory == "Grammar") {
-                            user.catégorie.grammar = true;
-                        } else if (selectedcategory == "Orthography") {
-                            user.catégorie.orthograph = true;
-                        }
+                        if (selectedcategory == "Vocabulary")user.catégorie.vocabulary = true;
+                        if (selectedcategory == "Grammar") user.catégorie.grammar = true;
+                        if (selectedcategory == "Orthography") user.catégorie.orthograph = true;
                     }
 
                     if (user.catégorie.vocabulary && user.catégorie.grammar && user.catégorie.orthograph) {
                         user.niveau++;
                     }
 
-                    user.tests.push(test);
+                    let existingTestIndex = user.tests.findIndex(testdata => 
+                        testdata.dificulty === selectedlevel && testdata.category === selectedcategory
+                    );
+
+                    if (existingTestIndex !== -1) {
+                        test.attempts = user.tests[existingTestIndex].attempts + 1; // Increment attempts
+                        user.tests[existingTestIndex] = test; // Overwrite old test data
+                    } else {
+                        user.tests.push(test);
+                    }                    
                     localStorage.setItem("user", JSON.stringify(user));
                     next.addEventListener("click",()=>{
                         window.location.href = "./fin.html";
