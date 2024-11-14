@@ -38,7 +38,8 @@
                         ["a) et","b) donc","c) mais"],
                         ["a) lent","b) vite ","c) tard"]
                 ]
-                }
+                },
+                
     }]
         },
         {

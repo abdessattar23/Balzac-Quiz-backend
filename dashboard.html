@@ -43,9 +43,45 @@
           <option value="latest">Date (Plus récent)</option>
           <option value="oldest">Date (Plus ancien)</option>
         </select>
+        
       </div>
     </section>
+    <section class="box-model my-5">
+      <!-- Button to Open Modal -->
+<button onclick="toggleModal()" class="px-4 py-2 bg-blue-600 text-white rounded">Rapport Data</button>
 
+<!-- Modal Background -->
+<div id="modal" class="fixed inset-0 hidden bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+    <!-- Modal Content -->
+    <div class="bg-white w-full max-w-md h-full md:h-auto p-6 rounded-lg overflow-y-auto">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Checklist</h2>
+        <ul class="space-y-4">
+            <li class="flex items-start">
+                <input type="checkbox" class="mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <div>
+                    <h3 class="font-medium text-gray-900">Questions posées                    </h3>
+                    <p class="text-gray-600 text-sm">This is a brief description for item one.</p>
+                </div>
+            </li>
+            <li class="flex items-start">
+                <input type="checkbox" class="mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <div>
+                    <h3 class="font-medium text-gray-900">Item Two</h3>
+                    <p class="text-gray-600 text-sm">This is a brief description for item two.</p>
+                </div>
+            </li>
+            <li class="flex items-start">
+                <input type="checkbox" class="mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <div>
+                    <h3 class="font-medium text-gray-900">Item Three</h3>
+                    <p class="text-gray-600 text-sm">This is a brief description for item three.</p>
+                </div>
+            </li>
+        </ul>
+        <!-- Close Button -->
+        <button onclick="toggleModal()" class="mt-6 px-4 py-2 bg-red-600 text-white rounded">Close</button>
+    </div>
+    </section>
     <!-- User Scores Table -->
     <section class="bg-white shadow-lg rounded-lg p-6 overflow-x-auto">
       <table class="min-w-full bg-white border border-gray-200 rounded-lg">
@@ -62,7 +98,16 @@
         </tbody>
       </table>
     </section>
+    
   </div>
-  <script src="script/dash.js"></script>
+  
+  <script src="script/dash.js">
+  </script>
 </body>
+<script>
+    function toggleModal() {
+        const modal = document.getElementById('modal');
+        modal.classList.toggle('hidden');
+    }
+</script>
 </html>
