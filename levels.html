@@ -9,7 +9,41 @@
         :root{
             --button-color: rgb(30, 30, 253);
         }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e4e4e4;
+        }
+
+        header {
+            background-color: #e4e4e4; /* Light grayish-blue */
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 100px;
+        }
+        
+        #user-info {
+            font-size: 18px;
+            color: #333;
+            
+        }
+        
+        #username {
+            font-weight: bold;
+        }
+        
+        #niveau {
+            background-color: #b3d6ff; /* Light blue background */
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #444;
+            border-radius: 15px;
+        }
         .wraper{
+            background-color: white;
             margin: 0 auto;
             border:1px solid black;
             border-radius: 30px;
@@ -18,7 +52,7 @@
             width: 742px;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
-            scrollbar-width: none;
+            scrollbar-width: thin;
             gap: 20px;
         }
         .sub-wraper{
@@ -53,6 +87,15 @@
 </head>
 <body>
     <section>
+        <header id="header">
+            <div id="user-info">
+                <div id="username"></div>
+            </div>
+            <div id="user-info">
+                <div id="niveau"></div>
+            </div>
+        </header>
+
         <div class="wraper">
             <div class="sub-wraper">
                 <h2>Level A1</h2>

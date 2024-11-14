@@ -3,11 +3,13 @@ let questAns = JSON.parse(localStorage.getItem("test"));
 let selectedlevel = JSON.parse(localStorage.getItem("level"));
 let selectedcategory = JSON.parse(localStorage.getItem("cat"));
 
+
+let testdate = Date.now();
 let test = {
     dificulty: selectedlevel,
     attempts: 1,
     category: selectedcategory,
-    date: 0,
+    date: testdate,
     score: 0,
     rapports: 
     {
@@ -18,7 +20,7 @@ let test = {
     }
 };
 
-
+console.log(test)
 
 // show diffrent auestion every time
 for (let i = 0; i < questAns.quests.length;i++){
@@ -157,8 +159,11 @@ document.addEventListener("DOMContentLoaded",()=>{
                         if (selectedcategory == "Orthography") user.catégorie.orthograph = true;
                     }
 
-                    if (user.catégorie.vocabulary && user.catégorie.grammar && user.catégorie.orthograph) {
+                    if (user.catégorie.vocabulary && user.catégorie.grammar && user.catégorie.orthograph && user.niveau < 6) {
                         user.niveau++;
+                        user.catégorie.vocabulary = false;
+                        user.catégorie.grammar = false;
+                        user.catégorie.orthograph = false;
                     }
 
                     let existingTestIndex = user.tests.findIndex(testdata => 

@@ -1,28 +1,45 @@
-const user = JSON.parse(localStorage.getItem("logged-user")) || {};
-console.log(user)
-// let user = {
-//     name : "ahmed",
-//     id : "123",
-//     niveau : 2,
-//     catégorie : {grammar : false , vocabulary : false , orthograph : false},
-//     tests : 
-//     [
-//       {
-//         dificulty: 2,
-//         attempts: 1,
-//         category: "",
-//         date: 1731424739919,
-//         score: 0,
-//         rapports: 
-//         {
-//           quests:[],
-//           selectedAns :[],
-//           correctAns : [],
-//           ans:[],
-//         }
-//       }
-//     ]
-//   };
+// const user = JSON.parse(localStorage.getItem("logged-user")) || {};
+// console.log(user)
+let user = {
+  name: "younes",
+  id: "123",
+  niveau: 3,
+  catégorie: {
+      grammar: false,
+      vocabulary: false,
+      orthograph: false
+  },
+  tests: [
+        {
+          dificulty: 2,
+          attempts: 1,
+          category: "",
+          date: 1731424739919,
+          score: 0,
+          rapports: {
+              quests: [],
+              selectedAns: [],
+              correctAns: [],
+              ans: []
+          }
+        }
+      ]
+    };
+
+  document.getElementById('username').textContent = `Username: ${user.name}`;
+  if (user.niveau == 1) {
+    document.getElementById('niveau').textContent = `Niveau: A1`;
+  }else if (user.niveau == 2) {
+    document.getElementById('niveau').textContent = `Niveau: A2`;
+  }else if (user.niveau == 3) {
+    document.getElementById('niveau').textContent = `Niveau: B1`;
+  }else if (user.niveau == 4) {
+    document.getElementById('niveau').textContent = `Niveau: B2`;
+  }else if (user.niveau == 5) {
+    document.getElementById('niveau').textContent = `Niveau: C1`;
+  }else if (user.niveau == 6) {
+    document.getElementById('niveau').textContent = `Niveau: C2`;
+  }
 
         const levels = [
             {
