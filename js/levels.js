@@ -1,30 +1,16 @@
-// const user = JSON.parse(localStorage.getItem("logged-user")) || {};
-// console.log(user)
-let user = {
-  name: "younes",
-  id: "123",
-  niveau: 3,
-  catégorie: {
-      grammar: false,
-      vocabulary: false,
-      orthograph: false
-  },
-  tests: [
-        {
-          dificulty: 2,
-          attempts: 1,
-          category: "",
-          date: 1731424739919,
-          score: 0,
-          rapports: {
-              quests: [],
-              selectedAns: [],
-              correctAns: [],
-              ans: []
-          }
-        }
-      ]
-    };
+const user = JSON.parse(localStorage.getItem("user")) || {};
+console.log(user)
+// let user = {
+//   name: "younes",
+//   id: "123",
+//   niveau: 3,
+//   catégorie: {
+//       grammar: false,
+//       vocabulary: false,
+//       orthograph: false
+//   },
+//   tests: []
+//     };
 
   document.getElementById('username').textContent = `Username: ${user.name}`;
   if (user.niveau == 1) {
@@ -40,6 +26,9 @@ let user = {
   }else if (user.niveau == 6) {
     document.getElementById('niveau').textContent = `Niveau: C2`;
   }
+
+
+  
 
         const levels = [
             {

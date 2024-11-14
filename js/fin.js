@@ -1,5 +1,9 @@
 // get final score
 let finalScore = localStorage.getItem("totalScore");
+
+let user = JSON.parse(localStorage.getItem("user"));
+
+
 // show final score
 if (finalScore != null) {
 document.querySelector(".resultat").innerHTML = `${finalScore}/10`;
