@@ -85,6 +85,31 @@
             }
     ];
 // start the funcs
+// chose what i want in the rapport;
+
+    let radioRapport = document.querySelectorAll(".radio-rapport");
+    let checkCount = 0;
+    // check all radios
+let notChecked = [];
+radioRapport.forEach((radio,index) =>{
+    radio.addEventListener("change",()=>{
+        if (radio.checked){
+            checkCount = checkCount+1;
+                notChecked.splice(notChecked.indexOf(index),1);
+               console.log(notChecked);
+        }else  if (!radio.checked) {
+            checkCount = checkCount - 1;
+            if (notChecked.includes(index) != true){
+                notChecked.push(index);
+            }
+            console.log(notChecked);
+
+        }
+        notChecked = notChecked.sort((a,b)=> a -b);
+        localStorage.setItem("noMore",JSON.stringify(notChecked));
+    })
+})
+
 // showing the data
 let tableData = document.querySelector(".table-data");
 arr.forEach(user =>{

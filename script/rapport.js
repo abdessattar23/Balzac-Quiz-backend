@@ -1,3 +1,6 @@
+// elements that we dont want
+let noMore = JSON.parse(localStorage.getItem("noMore"));
+
 // getting elemennts
 let rapportContainer = document.querySelector(".rapport");
 // rapport object
@@ -25,6 +28,7 @@ let level = localStorage.getItem("userLevel");
       }
 document.querySelector(".rapport-score").textContent = localStorage.getItem("userScore") + '/10';
 document.querySelector(".rapport-level").textContent = niveau ;
+
 // show the data from local storage to rapport page
 allQuests.forEach((q,i)=>{
     // if the answer is not correct
@@ -55,6 +59,55 @@ allQuests.forEach((q,i)=>{
     }
     
 })
+
+// no more items
+
+
+noMore.forEach((no,index)=>{
+    if (no == 3){
+    document.querySelector(".rapport-score").textContent = "NO";
+    }
+    if (no == 4){
+    document.querySelector(".rapport-level").textContent = "NO" ;
+    }
+    if (no == 0){
+        rapportContainer.innerHTML = "";
+        allQuests.forEach((_,i)=>{
+            rapportContainer.innerHTML += `
+         <div class="quest-box">
+            <h2 class="rapport-quest">No Quests</h2>
+           <h3>Votre Reponse: <span class="correct" style="color:red;">${rapport.answers[i][rapport.selectedAns[i]]}</span></h3>
+           <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answers[i][rapport.correctAns[i]]}</span></h3>  
+           </div>
+    `
+        })
+    }
+    if (no == 1){
+        rapportContainer.innerHTML = "";
+        allQuests.forEach((q,i)=>{
+            rapportContainer.innerHTML += `
+         <div class="quest-box">
+            <h2 class="rapport-quest">${q}</h2>
+           <h3>Votre Reponse: <span class="correct" style="color:red;">No Ans</span></h3>
+           <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answers[i][rapport.correctAns[i]]}</span></h3>  
+           </div>
+    `
+        })
+    }
+    if (no == 2){
+        rapportContainer.innerHTML = "";
+        allQuests.forEach((q,i)=>{
+            rapportContainer.innerHTML += `
+         <div class="quest-box">
+            <h2 class="rapport-quest">${q}</h2>
+           <h3>Votre Reponse: <span class="correct" style="color:red;">${rapport.answers[i][rapport.selectedAns[i]]}</span></h3>
+           <h3>Correct Reponse: <span class="false" style="color:green;">No Ans</span></h3>  
+           </div>
+    `
+        })
+    }
+})
+console.log(noMore)
 // download rapport
 var element = document.getElementById("body");
 console.log(html2pdf(element))

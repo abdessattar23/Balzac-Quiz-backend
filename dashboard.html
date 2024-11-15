@@ -53,29 +53,32 @@
 <!-- Modal Background -->
 <div id="modal" class="fixed inset-0 hidden bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
     <!-- Modal Content -->
-    <div class="bg-white w-full max-w-md h-full md:h-auto p-6 rounded-lg overflow-y-auto">
+    <div class="bg-white w-full max-w-md h-full md:h-auto p-6 rounded-lg overflow-y-auto ">
         <h2 class="text-xl font-bold text-gray-900 mb-4">Checklist</h2>
         <ul class="space-y-4">
             <li class="flex items-start">
-                <input type="checkbox" class="mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                <div>
-                    <h3 class="font-medium text-gray-900">Questions posées                    </h3>
-                    <p class="text-gray-600 text-sm">This is a brief description for item one.</p>
-                </div>
+                <input checked type="checkbox" id="posee" class="radio-rapport mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <label for="posee" class="font-medium text-gray-900">Questions posées</label>
             </li>
             <li class="flex items-start">
-                <input type="checkbox" class="mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                <div>
-                    <h3 class="font-medium text-gray-900">Item Two</h3>
-                    <p class="text-gray-600 text-sm">This is a brief description for item two.</p>
-                </div>
+                <input checked type="checkbox" id="correct" class="radio-rapport mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <label for="correct" class="font-medium text-gray-900">Réponses correctes</label>
             </li>
             <li class="flex items-start">
-                <input type="checkbox" class="mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                <div>
-                    <h3 class="font-medium text-gray-900">Item Three</h3>
-                    <p class="text-gray-600 text-sm">This is a brief description for item three.</p>
-                </div>
+                <input id="false" checked type="checkbox" class="radio-rapport mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <label for="false" class="font-medium text-gray-900">Réponses incorrectes
+                    </label>
+            </li>
+            <li class="flex items-start">
+                <input checked type="checkbox" id="total" class="radio-rapport mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <label for="total" class="font-medium text-gray-900">Score total
+                    </label>
+            </li>
+            <li class="flex items-start">
+                <input id="niveau" checked type="checkbox" class="radio-rapport mt-1 mr-3 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <label for="niveau" class="font-medium text-gray-900">Niveau atteint
+
+                    </label>
             </li>
         </ul>
         <!-- Close Button -->
