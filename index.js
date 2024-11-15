@@ -42,9 +42,10 @@ function add_user(user_name, id){
     let new_user = {
         name : user_name,
         id : id,
-        niveau : "A1",
+        niveau : 1,
         categorie : {grammaire : false , vocabulaire : false , comprehsion : false},
         score : 0,
+        tests: [],
     }
     users.push(new_user);
     localStorage.setItem("user_list", JSON.stringify(users));
