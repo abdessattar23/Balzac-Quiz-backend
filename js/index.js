@@ -1,13 +1,7 @@
-let users = [
-    {
+let admin ={
         name : "admin",
         id : 1234,
-        // niveau : "A1",
-        // categorie : {gramm : false , vocab : false , compreh : false},
-        // score: 0,
-        // test : []
-    }
-]
+    };
 
 let user_list = localStorage.getItem("user_list")
 users = (user_list)? JSON.parse(user_list) : []
@@ -19,7 +13,7 @@ document.getElementById("btn_connexion").onclick = ()=>{
     let id = parseInt(document.getElementById("identifiant").value);
     let logged_user = check_user(id);
     if(logged_user){
-        if (logged_user.id === users[0].id) {
+        if (logged_user.id === admin.id) {
         window.location.href = "dashboard.html"; 
         }
         else {
@@ -34,6 +28,9 @@ function check_user(id){
         if (users[i] && users[i].id === id) {
             return users[i];
         }
+    }
+    if (id === admin.id) {
+        return admin;
     }
     document.getElementById("erreur_id").style.display = "block";
 }
@@ -68,15 +65,6 @@ function generate_id(){
 // Event pour generer l'id et l'afficher
 let submit = document.getElementById("btn_submit");
 submit.addEventListener('click', ()=>{ 
-    // console.log(user_name !== "")
-        // if(user_name !== ""){
-            // console.log("condition");
-            // let identifiant = document.getElementById("id_generer");
-            // document.getElementById("identifiant").value = id;
-            // let message = document.createElement("p");
-            // message.textContent = "Conservez votre identifiant pour vos prochaines connexions.";
-            // identifiant.appendChild(message);
-        // }
     let user_name = document.getElementById("user_name").value;
     let id = generate_id();
     console.log(id);
