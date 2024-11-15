@@ -341,3 +341,9 @@ function modify(ele) {
         }
     }
 }
+
+const logout = document.getElementById("logoutButton");
+logout.addEventListener("click", () => {
+    localStorage.removeItem("current_user");
+    window.location.href = "index.html";
+});
