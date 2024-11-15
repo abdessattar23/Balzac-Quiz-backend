@@ -13,7 +13,7 @@ let user_list = localStorage.getItem("user_list")
 users = (user_list)? JSON.parse(user_list) : []
 // let users_list = JSON.parse(localStorage.getItem("user_list")) || [];
 
-console.log(users)
+// console.log(users)
 
 document.getElementById("btn_connexion").onclick = ()=>{
     let id = parseInt(document.getElementById("identifiant").value);
@@ -67,15 +67,6 @@ function generate_id(){
 // Event pour generer l'id et l'afficher
 let submit = document.getElementById("btn_submit");
 submit.addEventListener('click', ()=>{ 
-    // console.log(user_name !== "")
-        // if(user_name !== ""){
-            // console.log("condition");
-            // let identifiant = document.getElementById("id_generer");
-            // document.getElementById("identifiant").value = id;
-            // let message = document.createElement("p");
-            // message.textContent = "Conservez votre identifiant pour vos prochaines connexions.";
-            // identifiant.appendChild(message);
-        // }
     let user_name = document.getElementById("user_name").value;
     let id = generate_id();
     console.log(id);
@@ -88,16 +79,16 @@ submit.addEventListener('click', ()=>{
         signup.appendChild(message);
     }
 })
- 
+
 const togglebtn = document.getElementById("toggle");
 
 togglebtn.addEventListener("click",() => {
     console.log("clicked");
     const conection = document.getElementById("user_conexion");
-    const signup = document.getElementById("signup");
+    const inscription = document.getElementById("inscription");
     
     conection.classList.toggle("hide");
-    signup.classList.toggle("hide");
+    inscription.classList.toggle("hide");
     
     if(conection.classList.contains("hide")){
         togglebtn.textContent = "se Connecter" ;
