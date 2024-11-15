@@ -1,89 +1,90 @@
 
 // test data
-    let arr = [{
-        name : "ahmed",
-        id : "123",
-        niveau : 3,
-        catégorie : {gramm : false , vocab : false , compreh : false},
-        tests : [{
-                dificulty: 1,
-                attempts: 1,
-                category: "grammar",
-                date: 1731424739919,
-                score: 0,
-                rapport: {
-                    quests:[
-                        "Complétez la phrase :Je ___ à la maison",
-                        "Quel est l'article correct pour 'chat' ?",
-                        "Comment dit-on 'Good morning' en français ?",
-                        'Choisissez le bon pronom : "Marie et ___ partons demain."',
-                        'Complétez la phrase : "Il est huit heures ___."',
-                        "Traduisez 'I like apples':",
-                        "Complétez : Si j'avais de l'argent, je ___ en voyage.",
-                        "Quel mot est correct ? C'est un ___ important pour le projet.",
-                        "Complétez la phrase : Il pleut ___ nous restons à l'intérieur.",
-                        "Quel est le synonyme de 'rapide' ?"
-                    ],
-                    selectedAns :[2,1,1,2,2,0,2,0,1,2],
-                    correctAns : [1,2,1,0,0,1,2,0,1,1],
-                    answers: [
-                        ["a) va", "b) vais","c) vont"],
-                        ["a) La","b) Les","c) Le"],
-                        ["a) Bonsoir","b) Bonjour","c) Bonne nuit"],
-                        ["a) moi","b) je","c) nous"],
-                        ["a) et demie","b) du soir","c) de soir"],
-                        ["a) J’aime des pommes","b) J’aime les pommes","c) Je mange des pommes"],
-                        ["a) vais","b) irai","c) irais"],
-                        ["a) sujet","b) sujette","c) sujété"],
-                        ["a) et","b) donc","c) mais"],
-                        ["a) lent","b) vite ","c) tard"]
-                ]
-                },
+    let arr = JSON.parse(localStorage.getItem("user-list")) || [];
+    // [{
+    //     name : "ahmed",
+    //     id : "123",
+    //     niveau : 3,
+    //     catégorie : {gramm : false , vocab : false , compreh : false},
+    //     tests : [{
+    //             dificulty: 1,
+    //             attempts: 1,
+    //             category: "grammar",
+    //             date: 1731424739919,
+    //             score: 0,
+    //             rapport: {
+    //                 quests:[
+    //                     "Complétez la phrase :Je ___ à la maison",
+    //                     "Quel est l'article correct pour 'chat' ?",
+    //                     "Comment dit-on 'Good morning' en français ?",
+    //                     'Choisissez le bon pronom : "Marie et ___ partons demain."',
+    //                     'Complétez la phrase : "Il est huit heures ___."',
+    //                     "Traduisez 'I like apples':",
+    //                     "Complétez : Si j'avais de l'argent, je ___ en voyage.",
+    //                     "Quel mot est correct ? C'est un ___ important pour le projet.",
+    //                     "Complétez la phrase : Il pleut ___ nous restons à l'intérieur.",
+    //                     "Quel est le synonyme de 'rapide' ?"
+    //                 ],
+    //                 selectedAns :[2,1,1,2,2,0,2,0,1,2],
+    //                 correctAns : [1,2,1,0,0,1,2,0,1,1],
+    //                 answers: [
+    //                     ["a) va", "b) vais","c) vont"],
+    //                     ["a) La","b) Les","c) Le"],
+    //                     ["a) Bonsoir","b) Bonjour","c) Bonne nuit"],
+    //                     ["a) moi","b) je","c) nous"],
+    //                     ["a) et demie","b) du soir","c) de soir"],
+    //                     ["a) J’aime des pommes","b) J’aime les pommes","c) Je mange des pommes"],
+    //                     ["a) vais","b) irai","c) irais"],
+    //                     ["a) sujet","b) sujette","c) sujété"],
+    //                     ["a) et","b) donc","c) mais"],
+    //                     ["a) lent","b) vite ","c) tard"]
+    //             ]
+    //             },
                 
-    }]
-        },
-        {
-            name : "yassin",
-            id : "1233",
-            niveau : 2,
-            catégorie : {gramm : false , vocab : false , compreh : false},
-            tests : [{
-                    dificulty: 1,
-                    attempts: 1,
-                    category: "grammar",
-                    date: 1731424704230,
-                    score: 7,
-            rapport: {
-                quests:[
-                    "Complétez la phrase :Je ___ à la maison",
-                    "Quel est l'article correct pour 'chat' ?",
-                    "Comment dit-on 'Good morning' en français ?",
-                    'Choisissez le bon pronom : "Marie et ___ partons demain."',
-                    'Complétez la phrase : "Il est huit heures ___."',
-                    "Traduisez 'I like apples':",
-                    "Complétez : Si j'avais de l'argent, je ___ en voyage.",
-                    "Quel mot est correct ? C'est un ___ important pour le projet.",
-                    "Complétez la phrase : Il pleut ___ nous restons à l'intérieur.",
-                    "Quel est le synonyme de 'rapide' ?"
-                ],
-                selectedAns :[2,1,1,3,2,0,2,0,1,2],
-                correctAns : [1,2,1,0,0,1,2,0,1,1],
-                answers: [
-                    ["a) va", "b) vais","c) vont"],
-                    ["a) La","b) Les","c) Le"],
-                    ["a) Bonsoir","b) Bonjour","c) Bonne nuit"],
-                    ["a) moi","b) je","c) nous"],
-                    ["a) et demie","b) du soir","c) de soir"],
-                    ["a) J’aime des pommes","b) J’aime les pommes","c) Je mange des pommes"],
-                    ["a) vais","b) irai","c) irais"],
-                    ["a) sujet","b) sujette","c) sujété"],
-                    ["a) et","b) donc","c) mais"],
-                    ["a) lent","b) vite ","c) tard"]
-            ]
-                    }
-        } ]
-            }
-    ];
+    // }]
+    //     },
+    //     {
+    //         name : "yassin",
+    //         id : "1233",
+    //         niveau : 2,
+    //         catégorie : {gramm : false , vocab : false , compreh : false},
+    //         tests : [{
+    //                 dificulty: 1,
+    //                 attempts: 1,
+    //                 category: "grammar",
+    //                 date: 1731424704230,
+    //                 score: 7,
+    //         rapport: {
+    //             quests:[
+    //                 "Complétez la phrase :Je ___ à la maison",
+    //                 "Quel est l'article correct pour 'chat' ?",
+    //                 "Comment dit-on 'Good morning' en français ?",
+    //                 'Choisissez le bon pronom : "Marie et ___ partons demain."',
+    //                 'Complétez la phrase : "Il est huit heures ___."',
+    //                 "Traduisez 'I like apples':",
+    //                 "Complétez : Si j'avais de l'argent, je ___ en voyage.",
+    //                 "Quel mot est correct ? C'est un ___ important pour le projet.",
+    //                 "Complétez la phrase : Il pleut ___ nous restons à l'intérieur.",
+    //                 "Quel est le synonyme de 'rapide' ?"
+    //             ],
+    //             selectedAns :[2,1,1,3,2,0,2,0,1,2],
+    //             correctAns : [1,2,1,0,0,1,2,0,1,1],
+    //             answers: [
+    //                 ["a) va", "b) vais","c) vont"],
+    //                 ["a) La","b) Les","c) Le"],
+    //                 ["a) Bonsoir","b) Bonjour","c) Bonne nuit"],
+    //                 ["a) moi","b) je","c) nous"],
+    //                 ["a) et demie","b) du soir","c) de soir"],
+    //                 ["a) J’aime des pommes","b) J’aime les pommes","c) Je mange des pommes"],
+    //                 ["a) vais","b) irai","c) irais"],
+    //                 ["a) sujet","b) sujette","c) sujété"],
+    //                 ["a) et","b) donc","c) mais"],
+    //                 ["a) lent","b) vite ","c) tard"]
+    //         ]
+    //                 }
+    //     } ]
+    //         }
+    // ];
 // start the funcs
 // chose what i want in the rapport;
 

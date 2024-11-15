@@ -62,15 +62,13 @@ allQuests.forEach((q,i)=>{
 
 // no more items
 
-
-noMore.forEach((no,index)=>{
-    if (no == 3){
+    if (noMore.includes(3)){
     document.querySelector(".rapport-score").textContent = "NO";
     }
-    if (no == 4){
+    if (noMore.includes(4)){
     document.querySelector(".rapport-level").textContent = "NO" ;
     }
-    if (no == 0){
+    if (noMore.includes(0)){
         rapportContainer.innerHTML = "";
         allQuests.forEach((_,i)=>{
             rapportContainer.innerHTML += `
@@ -82,7 +80,7 @@ noMore.forEach((no,index)=>{
     `
         })
     }
-    if (no == 1){
+    if (noMore.includes(1)){
         rapportContainer.innerHTML = "";
         allQuests.forEach((q,i)=>{
             rapportContainer.innerHTML += `
@@ -94,7 +92,7 @@ noMore.forEach((no,index)=>{
     `
         })
     }
-    if (no == 2){
+    if (noMore.includes(2)){
         rapportContainer.innerHTML = "";
         allQuests.forEach((q,i)=>{
             rapportContainer.innerHTML += `
@@ -106,7 +104,6 @@ noMore.forEach((no,index)=>{
     `
         })
     }
-})
 console.log(noMore)
 // download rapport
 var element = document.getElementById("body");
