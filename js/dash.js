@@ -1,6 +1,6 @@
 
 // test data
-    let arr = JSON.parse(localStorage.getItem("user-list")) || [];
+    let arr = JSON.parse(localStorage.getItem("user_list")) || [];
     // [{
     //     name : "ahmed",
     //     id : "123",
@@ -243,10 +243,10 @@ downloadBtn.forEach((down,i)=>{
     down.addEventListener("click",()=>{
         localStorage.setItem("userScore",JSON.stringify(arr[i].tests[arr[i].tests.length - 1].score));
         localStorage.setItem("userLevel",JSON.stringify(arr[i].niveau));
-        localStorage.setItem("userQuests", JSON.stringify(arr[i].tests[arr[i].tests.length - 1].rapport));
+        localStorage.setItem("userQuests", JSON.stringify(arr[i].tests[arr[i].tests.length - 1].rapports));
         console.log(arr[i].tests[arr[i].tests.length - 1].score)
         console.log(arr[i].niveau)
-        console.log(arr[i].tests[arr[i].tests.length - 1].rapport);
+        console.log(arr[i].tests[arr[i].tests.length - 1].rapports);
         window.open("./rapport.html");
     })
 })
@@ -297,10 +297,10 @@ downloadBtn.forEach((down,i)=>{
     down.addEventListener("click",()=>{
         localStorage.setItem("userScore",JSON.stringify(arr[i].tests[arr[i].tests.length - 1].score));
         localStorage.setItem("userLevel",JSON.stringify(arr[i].niveau));
-        localStorage.setItem("userQuests", JSON.stringify(arr[i].tests[arr[i].tests.length - 1].rapport));
+        localStorage.setItem("userQuests", JSON.stringify(arr[i].tests[arr[i].tests.length - 1].rapports));
         console.log(arr[i].tests[arr[i].tests.length - 1].score)
         console.log(arr[i].niveau)
-        console.log(arr[i].tests[arr[i].tests.length - 1].rapport);
+        console.log(arr[i].tests[arr[i].tests.length - 1].rapports);
         window.open("./rapport.html");
     })
 })
@@ -313,10 +313,10 @@ downloadBtn.forEach((down,i)=>{
     down.addEventListener("click",()=>{
         localStorage.setItem("userScore",JSON.stringify(arr[i].tests[arr[i].tests.length - 1].score));
         localStorage.setItem("userLevel",JSON.stringify(arr[i].niveau));
-        localStorage.setItem("userQuests", JSON.stringify(arr[i].tests[arr[i].tests.length - 1].rapport));
+        localStorage.setItem("userQuests", JSON.stringify(arr[i].tests[arr[i].tests.length - 1].rapports));
         console.log(arr[i].tests[arr[i].tests.length - 1].score)
         console.log(arr[i].niveau)
-        console.log(arr[i].tests[arr[i].tests.length - 1].rapport);
+        console.log(arr[i].tests[arr[i].tests.length - 1].rapports);
         window.open("./rapport.html");
     })
 })
