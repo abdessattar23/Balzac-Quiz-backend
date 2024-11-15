@@ -31,7 +31,7 @@ document.getElementById("btn_connexion").onclick = ()=>{
 // find user by id
 function check_user(id){
     for (let i = 0; i < users.length; i++) {
-        if (users[i].id === id) {
+        if (users[i] && users[i].id === id) {
             return users[i];
         }
     }
