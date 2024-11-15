@@ -37,23 +37,23 @@ allQuests.forEach((q,i)=>{
          <div class="quest-box">
             <h2 class="rapport-quest">${q}</h2>
            <h3>Votre Reponse: <span class="correct" style="color:red;">No reponse</span></h3>
-           <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answers[i][rapport.correctAns[i]]}</span></h3>  
+           <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answer[i][rapport.correctAns[i]]}</span></h3>  
            </div>
     `
     } else if (rapport.selectedAns[i] != rapport.correctAns[i]){
         rapportContainer.innerHTML += `
          <div class="quest-box">
             <h2 class="rapport-quest">${q}</h2>
-           <h3>Votre Reponse: <span class="correct" style="color:red;">${rapport.answers[i][rapport.selectedAns[i]]}</span></h3>
-           <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answers[i][rapport.correctAns[i]]}</span></h3>  
+           <h3>Votre Reponse: <span class="correct" style="color:red;">${rapport.answer[i][rapport.selectedAns[i]]}</span></h3>
+           <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answer[i][rapport.correctAns[i]]}</span></h3>  
            </div>
     `
     } else  { //if the answer is correct
         rapportContainer.innerHTML += `
         <div class="quest-box">
            <h2 class="rapport-quest">${q}</h2>
-          <h3>Votre Reponse: <span class="correct" style="color:green;">${rapport.answers[i][rapport.selectedAns[i]]}</span></h3>
-          <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answers[i][rapport.correctAns[i]]}</span></h3>  
+          <h3>Votre Reponse: <span class="correct" style="color:green;">${rapport.answer[i][rapport.selectedAns[i]]}</span></h3>
+          <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answer[i][rapport.correctAns[i]]}</span></h3>  
           </div>
    `
     }
@@ -61,49 +61,51 @@ allQuests.forEach((q,i)=>{
 })
 
 // no more items
-
+if (noMore != null){
+    
     if (noMore.includes(3)){
-    document.querySelector(".rapport-score").textContent = "NO";
-    }
-    if (noMore.includes(4)){
-    document.querySelector(".rapport-level").textContent = "NO" ;
-    }
-    if (noMore.includes(0)){
-        rapportContainer.innerHTML = "";
-        allQuests.forEach((_,i)=>{
-            rapportContainer.innerHTML += `
-         <div class="quest-box">
-            <h2 class="rapport-quest">No Quests</h2>
-           <h3>Votre Reponse: <span class="correct" style="color:red;">${rapport.answers[i][rapport.selectedAns[i]]}</span></h3>
-           <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answers[i][rapport.correctAns[i]]}</span></h3>  
-           </div>
-    `
-        })
-    }
-    if (noMore.includes(1)){
-        rapportContainer.innerHTML = "";
-        allQuests.forEach((q,i)=>{
-            rapportContainer.innerHTML += `
-         <div class="quest-box">
-            <h2 class="rapport-quest">${q}</h2>
-           <h3>Votre Reponse: <span class="correct" style="color:red;">No Ans</span></h3>
-           <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answers[i][rapport.correctAns[i]]}</span></h3>  
-           </div>
-    `
-        })
-    }
-    if (noMore.includes(2)){
-        rapportContainer.innerHTML = "";
-        allQuests.forEach((q,i)=>{
-            rapportContainer.innerHTML += `
-         <div class="quest-box">
-            <h2 class="rapport-quest">${q}</h2>
-           <h3>Votre Reponse: <span class="correct" style="color:red;">${rapport.answers[i][rapport.selectedAns[i]]}</span></h3>
-           <h3>Correct Reponse: <span class="false" style="color:green;">No Ans</span></h3>  
-           </div>
-    `
-        })
-    }
+        document.querySelector(".rapport-score").textContent = "NO";
+        }
+        if (noMore.includes(4)){
+        document.querySelector(".rapport-level").textContent = "NO" ;
+        }
+        if (noMore.includes(0)){
+            rapportContainer.innerHTML = "";
+            allQuests.forEach((_,i)=>{
+                rapportContainer.innerHTML += `
+             <div class="quest-box">
+                <h2 class="rapport-quest">No Quests</h2>
+               <h3>Votre Reponse: <span class="correct" style="color:red;">${rapport.answer[i][rapport.selectedAns[i]]}</span></h3>
+               <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answer[i][rapport.correctAns[i]]}</span></h3>  
+               </div>
+        `
+            })
+        }
+        if (noMore.includes(1)){
+            rapportContainer.innerHTML = "";
+            allQuests.forEach((q,i)=>{
+                rapportContainer.innerHTML += `
+             <div class="quest-box">
+                <h2 class="rapport-quest">${q}</h2>
+               <h3>Votre Reponse: <span class="correct" style="color:red;">No Ans</span></h3>
+               <h3>Correct Reponse: <span class="false" style="color:green;">${rapport.answer[i][rapport.correctAns[i]]}</span></h3>  
+               </div>
+        `
+            })
+        }
+        if (noMore.includes(2)){
+            rapportContainer.innerHTML = "";
+            allQuests.forEach((q,i)=>{
+                rapportContainer.innerHTML += `
+             <div class="quest-box">
+                <h2 class="rapport-quest">${q}</h2>
+               <h3>Votre Reponse: <span class="correct" style="color:red;">${rapport.answer[i][rapport.selectedAns[i]]}</span></h3>
+               <h3>Correct Reponse: <span class="false" style="color:green;">No Ans</span></h3>  
+               </div>
+        `
+            })
+        }
+}
 console.log(noMore)
 // download rapport
 var element = document.getElementById("body");
