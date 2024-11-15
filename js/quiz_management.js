@@ -129,7 +129,7 @@ function addNew(ele) {
         wrongAnswers.push(correctAnswer);
     
         // Find the correct level and category in the data
-        const levelData = data.find(d => d.level === levl);
+        const levelData = data.find(d => d.level == levl);
         if (levelData) {
             const categoryData = levelData.categories.find(cat => cat.name === categ);
             if (categoryData) {
@@ -143,6 +143,7 @@ function addNew(ele) {
     
         // Save the updated data to localStorage
         localStorage.setItem("quizz", JSON.stringify(data));
+        console.log(data);
     });
 
     // For demonstration, open the modal

@@ -4,7 +4,6 @@ let selectedlevel = JSON.parse(localStorage.getItem("level"));
 let selectedcategory = JSON.parse(localStorage.getItem("cat"));
 let users = JSON.parse(localStorage.getItem("user_list"));
 
-
 let testdate = Date.now();
 let test = {
     dificulty: selectedlevel,
