@@ -1,15 +1,16 @@
-// let users = [
-//     {
-//         name : "ahmed",
-//         id : 1234,
-//         niveau : "A1",
-//         categorie : {gramm : false , vocab : false , compreh : false},
-//         score: 0,
-//         test : []
-//     }
-// ]
+let users = [
+    {
+        name : "admin",
+        id : 1234,
+        // niveau : "A1",
+        // categorie : {gramm : false , vocab : false , compreh : false},
+        // score: 0,
+        // test : []
+    }
+]
+
 let user_list = localStorage.getItem("user_list")
-let users = (user_list)? JSON.parse(user_list) : []
+users = (user_list)? JSON.parse(user_list) : []
 // let users_list = JSON.parse(localStorage.getItem("user_list")) || [];
 
 console.log(users)
@@ -18,8 +19,13 @@ document.getElementById("btn_connexion").onclick = ()=>{
     let id = parseInt(document.getElementById("identifiant").value);
     let logged_user = check_user(id);
     if(logged_user){
-        localStorage.setItem("current_user", JSON.stringify(logged_user));
-        window.location.href = "http://127.0.0.1:5500/levels.html";
+        if (logged_user.id === users[0].id) {
+        window.location.href = "http://127.0.0.1:5501/Balzac-Quiz-backend/dashboard.html"; 
+        }
+        else {
+            localStorage.setItem("current_user", JSON.stringify(logged_user));
+            window.location.href = "http://127.0.0.1:5501/Balzac-Quiz-backend/levels.html"; 
+        }
     }
 }
 // find user by id
@@ -44,11 +50,13 @@ function add_user(user_name, id){
     localStorage.setItem("user_list", JSON.stringify(users));
     console.log(users);
 }
+// generate l'id
 function generate_id(){
     const max_id = 9999, min_id = 1000;
     let unique_id = Math.floor(Math.random() * (max_id - min_id)) + min_id;
-    for(let i = 0; i < users.length; i++){
+    for(let i = 0; i <= users.length; i++){
         if(users[i].id === unique_id){
+            console.log("in the if")
             return generate_id();
         }
         else{
@@ -56,7 +64,7 @@ function generate_id(){
         }
     }
 }
-
+// Event pour generer l'id et l'afficher
 let submit = document.getElementById("btn_submit");
 submit.addEventListener('click', ()=>{ 
     // console.log(user_name !== "")
@@ -70,24 +78,31 @@ submit.addEventListener('click', ()=>{
         // }
     let user_name = document.getElementById("user_name").value;
     let id = generate_id();
-    // console.log(id);
+    console.log(id);
     if(user_name){
         add_user(user_name, id);
-        let signup = document.getElementById("signup");
+        let signup = document.getElementById("afficher_id");
+        signup.innerHTML = "";
         let message = document.createElement("p");
-        message.textContent = `Votre identifiant est : ${id} \nConserver le pour vos prochaines connexions.`;
+        message.textContent = `Votre identifiant est : ${id}  Conserver le pour se connecter.`;
         signup.appendChild(message);
-        // alert(`Votre identifiant est : ${id} \nConserver le pour vos prochaines connexions.`);
-
     }
 })
  
-const togglebtn = document.getElementById("toggle")
+const togglebtn = document.getElementById("toggle");
 
-togglebtn.addEventListener("click",() => {    
-    const conection = document.getElementById("user_conexion")
+togglebtn.addEventListener("click",() => {
+    console.log("clicked");
+    const conection = document.getElementById("user_conexion");
     const signup = document.getElementById("signup");
     
     conection.classList.toggle("hide");
     signup.classList.toggle("hide");
+    
+    if(conection.classList.contains("hide")){
+        togglebtn.textContent = "se Connecter" ;
+    }
+    else {
+        togglebtn.textContent = "inscription" ;
+    }
 })
