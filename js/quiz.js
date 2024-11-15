@@ -1,9 +1,9 @@
-let user = JSON.parse(localStorage.getItem("user"));
+let user = JSON.parse(localStorage.getItem("current_user"));
 let questAns = JSON.parse(localStorage.getItem("test"));
 let selectedlevel = JSON.parse(localStorage.getItem("level"));
 let selectedcategory = JSON.parse(localStorage.getItem("cat"));
+let users = JSON.parse(localStorage.getItem("user_list"));
 
-console.log(user);
 
 let testdate = Date.now();
 let test = {
@@ -111,18 +111,18 @@ document.addEventListener("DOMContentLoaded", () => {
         test.score = thescore;
 
         // Update category to true if the score is a perfect 10
-        if (test.score === 10 && user.niveau === selectedlevel) {
-                if (selectedcategory == "Vocabulary") user.catégorie.vocabulary = true;
-                if (selectedcategory == "Grammar") user.catégorie.grammar = true;
-                if (selectedcategory == "Orthography") user.catégorie.orthograph = true;
+        if (test.score === test.rapports.quests.length && user.niveau === selectedlevel) {
+                if (selectedcategory == "Vocabulary") user.categorie.vocabulary = true;
+                if (selectedcategory == "Grammar") user.categorie.grammar = true;
+                if (selectedcategory == "Orthography") user.categorie.orthograph = true;
         }
 
         // Check if all categories are complete to increase the level
-        if (user.catégorie.vocabulary && user.catégorie.grammar && user.catégorie.orthograph && user.niveau < 6) {
+        if (user.categorie.vocabulary && user.categorie.grammar && user.categorie.orthograph && user.niveau < 6) {
             user.niveau++;
-            user.catégorie.vocabulary = false;
-            user.catégorie.grammar = false;
-            user.catégorie.orthograph = false;
+            user.categorie.vocabulary = false;
+            user.categorie.grammar = false;
+            user.categorie.orthograph = false;
         }
 
         // Update test attempts and save user data
@@ -139,7 +139,13 @@ document.addEventListener("DOMContentLoaded", () => {
             user.tests.push(test);
         }
 
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("current_user", JSON.stringify(user));
+        for (let i = 0; i < users.length; i++) {
+            if (user.id == users[i].id) {
+                users[i] = user;
+            }
+        }
+        localStorage.setItem("user_list", JSON.stringify(users));
     }
 
     async function start() {
@@ -158,6 +164,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
-
     start();
 });

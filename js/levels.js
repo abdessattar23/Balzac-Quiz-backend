@@ -1,16 +1,37 @@
-const user = JSON.parse(localStorage.getItem("user")) || {};
-console.log(user)
-// let user = {
+let user = JSON.parse(localStorage.getItem("current_user")) || {};
+
+let users = JSON.parse(localStorage.getItem("user_list")) || [];
+
+// users = [{
 //   name: "younes",
 //   id: "123",
-//   niveau: 3,
-//   catégorie: {
+//   niveau: 1,
+//   categorie: {
 //       grammar: false,
 //       vocabulary: false,
 //       orthograph: false
 //   },
-//   tests: []
-//     };
+//   tests: [
+//       ]},
+//       {   
+//   name: "amine",
+//   id: "124",
+//   niveau: 1,
+//   categorie: {
+//       grammar: false,
+//       vocabulary: false,
+//       orthograph: false
+//   },
+//   tests: [
+//       ]}
+// ]
+
+
+  // user = users[0];
+  // user = users[1];
+
+// localStorage.setItem("user_list", JSON.stringify(users));
+
 
   document.getElementById('username').textContent = `Username: ${user.name}`;
   if (user.niveau == 1) {
@@ -729,11 +750,14 @@ gotoquiz.forEach(link => {
                         localStorage.setItem("test", JSON.stringify(test));
                         localStorage.setItem("level", JSON.stringify(selectedlevel));
                         localStorage.setItem("cat", JSON.stringify(selectedcategory));
-                        localStorage.setItem("user", JSON.stringify(loggedaccount));
+                        localStorage.setItem("current_user", JSON.stringify(user));
 
-                        console.log(selectedcategory);
-                        console.log(selectedlevel)
-                        console.log(loggedaccount)
+                        for (let i = 0; i < users.length; i++) {
+                            if (loggedaccount.id == users[i].id) {
+                                user[i] = loggedaccount;
+                            }
+                        }
+                        localStorage.setItem("user_list", JSON.stringify(users));
                         return;
                     }
                 }
