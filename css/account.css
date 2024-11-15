@@ -12,7 +12,7 @@ body{
 header{
     display: flex;
     justify-content: flex-end;
-    padding-top:20px !important
+    padding-top: 5px !important
 }
 header i{
     font-size: 40px;
@@ -45,22 +45,61 @@ header i{
     margin: auto;
 }
 .home-logo img{width:100%;}
-.commencer{
+
+#btn_connexion,
+#btn_submit{
+    height: 25px;
     text-decoration: none;
     color: #fff;
     background-color: var(--main-color);
-    font-size: 34px;
-    padding: 10px 40px;
-    display: block;
-    width: 200px;
+    font-size: 15px;
+    /* padding: 10px 40px; */
+    /* display: block; */
+    width: 130px;
+    border: none;
+    box-shadow: 0 3px 3px black;
     border-radius: 10px;
-    margin: 10px auto;
+    margin-left: 15px;
+    margin-bottom: 15px;
     text-align: center;
-    transition: 1s ease;
     cursor: pointer;
 }
-.commencer:hover{
-    background-color: #0460d9;
+#toggle{
+    height: 35px;
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--main-color);
+    font-size: 15px;
+    /* padding: 10px 40px; */
+    /* display: block; */
+    width: 180px;
+    border: none;
+    box-shadow: 0 3px 3px black;
+    border-radius: 15px;
+    margin: 10px auto;
+    text-align: center;
+    cursor: pointer;
+}
+#user_conexion input,
+#inscription input{
+    height: 24px;
+    width : 50%;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 7px rgba(10, 10, 10, 0.127);
+}
+
+#btn_connexion:hover,
+#btn_submit:hover,
+#toggle:hover{
+    background-color: hsl(214, 100%, 50%);
+}
+
+#btn_connexion:active,
+#btn_submit:active,
+#toggle:active{
+    background-color: hsl(214, 100%, 70%);
 }
 
 @media screen and (max-width:776px){

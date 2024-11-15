@@ -7,7 +7,7 @@ let user_list = localStorage.getItem("user_list")
 users = (user_list)? JSON.parse(user_list) : []
 // let users_list = JSON.parse(localStorage.getItem("user_list")) || [];
 
-console.log(users)
+// console.log(users)
 
 document.getElementById("btn_connexion").onclick = ()=>{
     let id = parseInt(document.getElementById("identifiant").value);
@@ -77,16 +77,16 @@ submit.addEventListener('click', ()=>{
         signup.appendChild(message);
     }
 })
- 
+
 const togglebtn = document.getElementById("toggle");
 
 togglebtn.addEventListener("click",() => {
     console.log("clicked");
     const conection = document.getElementById("user_conexion");
-    const signup = document.getElementById("signup");
+    const inscription = document.getElementById("inscription");
     
     conection.classList.toggle("hide");
-    signup.classList.toggle("hide");
+    inscription.classList.toggle("hide");
     
     if(conection.classList.contains("hide")){
         togglebtn.textContent = "se Connecter" ;
