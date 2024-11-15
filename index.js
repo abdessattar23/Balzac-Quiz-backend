@@ -20,18 +20,18 @@ document.getElementById("btn_connexion").onclick = ()=>{
     let logged_user = check_user(id);
     if(logged_user){
         if (logged_user.id === users[0].id) {
-        window.location.href = "http://127.0.0.1:5501/Balzac-Quiz-backend/dashboard.html"; 
+        window.location.href = "dashboard.html"; 
         }
         else {
             localStorage.setItem("current_user", JSON.stringify(logged_user));
-            window.location.href = "http://127.0.0.1:5501/Balzac-Quiz-backend/levels.html"; 
+            window.location.href = "levels.html"; 
         }
     }
 }
 // find user by id
 function check_user(id){
     for (let i = 0; i < users.length; i++) {
-        if (users[i].id === id) {
+        if (users[i] && users[i].id === id) {
             return users[i];
         }
     }
