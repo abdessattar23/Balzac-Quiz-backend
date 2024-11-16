@@ -14,11 +14,11 @@ document.getElementById("btn_connexion").onclick = ()=>{
     let logged_user = check_user(id);
     if(logged_user){
         if (logged_user.id === admin.id) {
-        window.location.href = "dashboard.html"; 
+        window.location.href = "./dashboard.html"; 
         }
         else {
             localStorage.setItem("current_user", JSON.stringify(logged_user));
-            window.location.href = "levels.html"; 
+            window.location.href = "./levels.html"; 
         }
     }
 }
