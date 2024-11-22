@@ -51,7 +51,7 @@ let users = JSON.parse(localStorage.getItem("user_list")) || [];
 
   
 
-        const levels = [
+        const levels =  JSON.parse(localStorage.getItem("quizz")) || [
             {
               level: 1,
               categories: [
@@ -105,7 +105,7 @@ let users = JSON.parse(localStorage.getItem("user_list")) || [];
                       ["suis", "es", "est"],
                       ["lui", "elle", "eux"],
                       ["ai", "as", "avons"],
-                      ["le", "la", "les"],
+                      ["le", "l'", "les"],
                       ["vont", "vas", "va"],
                       ["veux", "veut", "voulez"],
                       ["fait", "fais", "feras"],
@@ -641,6 +641,9 @@ let users = JSON.parse(localStorage.getItem("user_list")) || [];
               ]
             }
           ]
+          localStorage.setItem("quizz", JSON.stringify(levels));
+
+          
           
 const gotoquiz = document.querySelectorAll(".level");
 function lock() {
@@ -752,6 +755,7 @@ gotoquiz.forEach(link => {
                         localStorage.setItem("cat", JSON.stringify(selectedcategory));
                         localStorage.setItem("current_user", JSON.stringify(user));
 
+                        console.log(test);
                         for (let i = 0; i < users.length; i++) {
                             if (loggedaccount.id == users[i].id) {
                                 user[i] = loggedaccount;
@@ -764,4 +768,9 @@ gotoquiz.forEach(link => {
             }
         }
     })
+});
+const logout = document.getElementById("logoutButton");
+logout.addEventListener("click", () => {
+    localStorage.removeItem("current_user");
+    window.location.href = "index.html";
 });

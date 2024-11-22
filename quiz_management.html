@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Management Dashboard</title>
+    <script src="tailwind.js"></script>
+</head>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="container mx-auto p-6">
+        <!-- Header -->
+        <header class="mb-6 flex justify-between flex-col md:flex-row">
+            <h1 class="text-xl text-center md:text-left md:text-xl font-bold text-gray-700 ">📊 Quiz Management</h1>
+            <div class="space-x-4 text-center md:text-right">
+              <a href="dashboard.html" class="text-blue-500 font-medium px-4 py-2 rounded hover">Suivie</a>
+              <a href="statistics.html" class="text-blue-500 font-medium px-4 py-2 rounded hover">Statistics</a>
+            </div>
+            <button id="logoutButton" class="px-4 py-2 bg-red-500 text-white border-none rounded-lg cursor-pointer text-lg transition duration-300 ease-in-out hover:bg-red-700">Log Out</button>
+          </header>
+
+        <!-- Search and Sort Options -->
+        <section class="mb-6 flex flex-row justify-end items-center">
+            <div class="flex space-x-4">
+                <select class="bg-white border border-gray-300 text-gray-700 py-2 px-3 rounded-lg niveau"
+                    aria-label="Sort by level">
+                    <option value="all">Niveau (Tous)</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                </select>
+
+                <select class="bg-white border border-gray-300 text-gray-700 py-2 px-3 rounded-lg dateBox"
+                    aria-label="Sort by Category">
+                    <option value="all">Category (Toutes)</option>
+                    <option value="Grammar">Grammaire</option>
+                    <option value="Vocabulary">Vocabulaire</option>
+                    <option value="Orthography">Compréhension</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- User Scores Table -->
+        <section class="bg-white shadow-lg rounded-lg p-6 overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                <thead class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <tr>
+                        <th class="py-3 px-6 text-left">Category</th>
+                        <th class="py-3 px-6 text-left">Niveau</th>
+                        <th class="py-3 px-6 text-left">Nombre de Questions</th>
+                        <th class="py-3 px-6 text-left">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm table-data">
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="add-question fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden">
+        <div class="bg-white max-w-lg mx-auto mt-10 p-6 rounded-lg shadow-lg">
+            <div class="multi-step-form">
+                <!-- Step 1 -->
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="js/quiz_management.js"></script>
+</body>
+
+</html>

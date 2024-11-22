@@ -52,7 +52,8 @@ header {
     border-radius: 30px;
     display: flex;
     align-items: center;
-    width: 742px;
+    width: 90%;
+    max-width: 742px;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -61,8 +62,9 @@ header {
 .sub-wraper{
     scroll-snap-align: center;
     flex-shrink: 0;
-    border:1px solid black;
-    width: 700px;
+    /* border:1px solid black; */
+    width: 90%;
+    max-width: 700px;
     border-radius: 30px;
     padding: 20px;
     text-align: center;
@@ -84,5 +86,32 @@ header {
         text-decoration: none;
         width: 100%;
         height: 100%;
+    }
+}
+
+#logoutButton {
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #logoutButton:hover {
+    background-color: #e60000;
+  }
+
+@media (max-width : 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .user-info {
+        width: 150px;
+        height: 30px;
+        margin-bottom: 10px;
     }
 }
