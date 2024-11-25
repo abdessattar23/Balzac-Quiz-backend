@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Management Dashboard</title>
+    <script src="tailwind.js"></script>
+</head>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="container mx-auto p-6">
+
+        <header class="mb-6 flex justify-between flex-col md:flex-row">
+            <h1 class="text-xl text-center md:text-left md:text-xl font-bold text-gray-700 ">📊 Statistics</h1>
+            <div class="space-x-4 text-center md:text-right">
+              <a href="dashboard.html" class="text-blue-500 font-medium px-4 py-2 rounded hover">Suivie</a>
+              <a href="quiz_management.html" class="text-blue-500 font-medium px-4 py-2 rounded hover">Quizz</a>
+            </div>
+            <button id="logoutButton" class="px-4 py-2 bg-red-500 text-white border-none rounded-lg cursor-pointer text-lg transition duration-300 ease-in-out hover:bg-red-700">Log Out</button>
+        </header>
+
+        
+
+       
+        <section class="bg-white shadow-lg rounded-lg p-6 overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                <thead class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <tr>
+                        <th class="py-3 px-6 text-left">Niveau</th>
+                        <th class="py-3 px-6 text-left">Taux de Réussite</th>
+                        <th class="py-3 px-6 text-left">Tentative</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm table-data">
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="js/statistics.js"></script>
+</body>
+
+</html>

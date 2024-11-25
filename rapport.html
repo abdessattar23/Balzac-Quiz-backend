@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- meta tags for website seo and performance -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="quiz, francais, app, tcf, a1,a2">
+    <meta name="description" content="Testez votre niveau de français en quelques minutes : A1, A2, B1 et plus">
+<meta name="robots" content="index, follow">
+    <title>Quizac | Rapport</title>
+    <!-- css files -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!-- google fonts -->
+      <!-- lemon -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lemon&display=swap" rel="stylesheet">
+     <!-- poppins -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lemon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+     <!-- inter -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lemon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+     <style>
+        /* global */
+*{
+    --main-color: #004BAC;
+}
+body{
+    font-family: "Inter", sans-serif;
+    text-align: center  ;
+    /*   font-family: "Poppins", sans-serif; */
+}
+.container{padding:0 10px;max-width:640px;margin: auto;}
+/* header */
+header{
+    display: flex;
+    justify-content: flex-end;
+    padding-top:20px !important
+}
+header i{
+    font-size: 40px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+/* home */
+.home-heading{
+    margin: auto;
+    text-align: center;
+}
+@media screen and (min-width:700px){
+    .home-heading{
+        width:600px
+    }
+}
+
+.home-heading .app-name{
+    font-size: 60px;
+    font-family: "Lemon", serif !important;
+    color: var(--main-color);
+}
+.home-heading .app-desc{
+    font-size:28px ;
+    color: #414141;
+}
+
+.home-logo{
+    width: 280px;
+    margin: auto;
+}
+.home-logo img{width:100%;}
+.commencer{
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--main-color);
+    font-size: 34px;
+    padding: 10px 40px;
+    display: block;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px auto;
+    text-align: center;
+    transition: 1s ease;
+    cursor: pointer;
+}
+.commencer:hover{
+    background-color: #0460d9;
+}
+
+@media screen and (max-width:776px){
+    .home-heading .app-name{
+        font-size: 40px;
+        font-family: "Lemon", serif !important;
+        color: var(--main-color);
+    }
+    .home-heading .app-desc{
+        font-size:16px ;
+        color: #414141;
+    }
+
+    .home-logo{
+        width: 250px;
+        margin: auto;
+    }
+    .home-logo img{width:100%;}
+    .commencer{
+        text-decoration: none;
+        color: #fff;
+        background-color: var(--main-color);
+        font-size: 24px;
+        padding: 10px 40px;
+        display: block;
+        width: 140px;
+        border-radius: 10px;
+        margin: 10px auto;
+        text-align: center;
+        transition: 1s ease;
+        cursor: pointer;
+    }
+}
+/* quiz */
+.quiz{
+    justify-content: space-between;
+    padding:0 10px;
+    max-width: 800px;
+    margin:auto
+}
+.quiz div{display: flex; align-items: center;}
+.quiz div i {display: flex; align-items: center}
+.quiz div *:first-child{margin-right: 10px;}
+.quest-num{color: #414141;font-size: 20px;}
+.quest{font-size:25px;width:100%;}
+@media screen and (min-width:800px){
+    .quest{
+        width:50%;
+        margin: auto;
+    }
+}
+.reponse, .suivant,.save,.redemarrer,.delete,.menu,.back{
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--main-color);
+    font-size: 24px;
+    padding: 10px 40px;
+    display: block;
+    width: 240px;
+    border-radius: 10px;
+    margin: 20px auto;
+    text-align: center;
+    transition: 1s ease;
+    cursor: pointer;
+}
+.reponse:hover, .save:hover,.redemarrer:hover, .delete:hover,.menu:hover{
+    background-color: #0460d9;
+}
+.suivant-div{display: flex;}
+.suivant,.back{
+    margin-right:10px ;
+    margin-top:40px;
+    cursor: no-drop;
+    background-color: #ddd;
+}
+.back {
+    background-color: var(--main-color);
+    cursor: pointer;
+    display: none;
+}
+@media screen and (max-width:776px){
+.suivant-div{flex-direction: column;}
+    .reponse{width: 180px;}
+    .suivant{width:70px}
+}
+/* ********************Fin QUiiz ***************/
+
+.result{
+    font-size: 23px;
+    max-width: 292px;
+    margin: 10px auto;
+}
+.result-box{
+    width:200px;
+    height: 200px;
+    background-color:#00AC45;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin:20px auto
+}
+.fin-buttons, .saved-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+@media screen and (max-width:776px){
+    .fin-buttons{
+        flex-direction: column;
+    }
+}
+.save, .redemarrer{
+    width:150px
+}
+/* results page */
+.saved.container,.saved-buttons.container{
+    max-width:500px;
+}
+.saved{
+    margin-top:120px;
+    text-align:unset;
+    text-align: left;
+    min-height: calc(100vh - 300px);
+    padding:0 30px;
+}
+.saved-box {
+    font-weight: bold;
+    font-size:24px;
+    display: flex;
+    justify-content: space-between;
+}
+.saved-buttons a{
+    width:120px;
+    margin:20px 0;
+}
+@media screen and (max-width:776px){
+    .saved-buttons{
+        flex-direction: column;
+    }
+    .saved-buttons a{margin:10px auto}
+}
+/* rapport */
+
+.rapport-header {
+    display: flex;
+    justify-content: space-between;
+    margin:20px auto 50px auto;
+}
+.rapport-header div{
+    width:100px;
+    height: 40px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: var(--main-color);
+}
+.rapport{
+    text-align: left;
+}
+.quest-box{margin-bottom: 30px;}
+.quest-box h3{margin-left:20px}
+.quest-box h3 span{font-weight: 500;} 
+     </style>
+</head>
+<body id="body">
+    <header class="rapport-header container">
+        <div class="rapport-score"></div>
+        <div class="rapport-level"></div>
+    </header>
+        <div class="rapport container">
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/rapport.js"></script>
+</body>
+</html>
