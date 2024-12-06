@@ -40,9 +40,8 @@ function add_user(user_name, id){
         name : user_name,
         id : id,
         niveau : 1,
-        categorie : {grammaire : false , vocabulaire : false , comprehsion : false},
-        score : 0,
-        tests: [],
+        categorie : {grammar : false , vocabulary : false , orthograph : false},
+        tests: []
     }
     users.push(new_user);
     localStorage.setItem("user_list", JSON.stringify(users));
