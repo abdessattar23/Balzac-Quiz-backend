@@ -769,6 +769,7 @@ gotoquiz.forEach(link => {
         }
     })
 });
+
 const logout = document.getElementById("logoutButton");
 logout.addEventListener("click", () => {
     localStorage.removeItem("current_user");

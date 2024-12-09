@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
             await showQuests(num);
             num++;
 
-            if (num == questAns.quests.length - 1) {
+            if (num == 9) {
                 next.textContent = "See Result";
                 next.style.cursor = "pointer";
                 next.style.backgroundColor = "#004BAC";
