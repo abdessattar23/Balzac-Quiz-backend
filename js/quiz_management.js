@@ -32,7 +32,7 @@ function init() {
         let res = data;
 
         if (levelVal !== "all") {
-            res = res.filter(ele => ele.level === levelVal);
+            res = res.filter(ele => ele.level == levelVal);
         }
 
         if (categoryVal !== "all") {
@@ -53,7 +53,6 @@ function init() {
     category.addEventListener("change", filter);
     filter();
 }
-
 
 function addNew(ele) {
     const modal = document.getElementById('modal');
@@ -118,7 +117,6 @@ function addNew(ele) {
         });
     });
 
-
     document.querySelector('.submit').addEventListener('click', () => {
         modal.classList.add('hidden');
         var categ = ele.parentElement.closest("tr").querySelector("#categ").textContent.trim();
@@ -128,28 +126,24 @@ function addNew(ele) {
         const correctAnswer = document.getElementById('correct').value;
         wrongAnswers.push(correctAnswer);
     
-        // Find the correct level and category in the data
         const levelData = data.find(d => d.level == levl);
         if (levelData) {
             const categoryData = levelData.categories.find(cat => cat.name === categ);
             if (categoryData) {
-                // Add the new question and answers
                 categoryData.questions.quests.push(question);
                 categoryData.questions.answers.push(wrongAnswers);
-                categoryData.questions.correct.push(wrongAnswers.length - 1); // Index of the correct answer
-                categoryData.questions.selected.push(null); // Assuming selected is used for tracking user selections
+                categoryData.questions.correct.push(wrongAnswers.length - 1);
+                categoryData.questions.selected.push(null);
             }
         }
     
-        // Save the updated data to localStorage
         localStorage.setItem("quizz", JSON.stringify(data));
-        console.log(data);
     });
 
-    // For demonstration, open the modal
     modal.classList.remove('hidden');
     showStep(currentStep);
 }
+
 function vis() {
     const question = document.getElementById('question').value;
     const wrongAnswers = Array.from(document.querySelectorAll('.wrong-answer')).map(input => input.value);
@@ -174,13 +168,13 @@ function Delete(ele) {
 
     var categ = ele.parentElement.closest("tr").querySelector("#categ").textContent.trim();
     var levl = ele.parentElement.closest("tr").querySelector("#levl").textContent.trim();
-
-    // Find the correct level and category in the data
-    const levelData = data.find(d => d.level === levl);
+    
+    const levelData = data.find(d => d.level == levl);
+    
     if (levelData) {
         const categoryData = levelData.categories.find(cat => cat.name === categ);
+        
         if (categoryData) {
-            // Display all questions for the selected category and level
             multiSteps.innerHTML = `
                 <div class="step">
                     <h2 class="text-xl font-bold mb-4">Select Question to Delete</h2>
@@ -199,25 +193,21 @@ function Delete(ele) {
             document.querySelector('.submit').addEventListener('click', () => {
                 const selectedQuestionIndex = document.querySelector('input[name="question"]:checked').value;
                 if (selectedQuestionIndex !== undefined) {
-                    // Remove the selected question and its associated answers and correct answer
                     categoryData.questions.quests.splice(selectedQuestionIndex, 1);
                     categoryData.questions.answers.splice(selectedQuestionIndex, 1);
                     categoryData.questions.correct.splice(selectedQuestionIndex, 1);
                     categoryData.questions.selected.splice(selectedQuestionIndex, 1);
 
-                    // Save the updated data to localStorage
                     localStorage.setItem("quizz", JSON.stringify(data));
-
-                    // Close the modal
                     modal.classList.add('hidden');
                 }
             });
 
-            // For demonstration, open the modal
             modal.classList.remove('hidden');
         }
     }
 }
+
 function modify(ele) {
     const modal = document.getElementById('modal');
     const multiSteps = document.querySelector('.multi-step-form');
@@ -225,13 +215,13 @@ function modify(ele) {
 
     var categ = ele.parentElement.closest("tr").querySelector("#categ").textContent.trim();
     var levl = ele.parentElement.closest("tr").querySelector("#levl").textContent.trim();
-
-    // Find the correct level and category in the data
-    const levelData = data.find(d => d.level === levl);
+    
+    const levelData = data.find(d => d.level == levl);
+    
     if (levelData) {
         const categoryData = levelData.categories.find(cat => cat.name === categ);
+        
         if (categoryData) {
-            // Display all questions for the selected category and level
             multiSteps.innerHTML = `
                 <div class="step">
                     <h2 class="text-xl font-bold mb-4">Select Question to Modify</h2>
@@ -255,7 +245,6 @@ function modify(ele) {
                     const correctAnswerIndex = categoryData.questions.correct[selectedQuestionIndex];
                     const correctAnswer = selectedAnswers[correctAnswerIndex];
 
-                    // Populate the form with the selected question and its answers
                     multiSteps.innerHTML = `
                         <div class="step">
                             <h2 class="text-xl font-bold mb-4">Question</h2>
@@ -321,22 +310,18 @@ function modify(ele) {
                         const correctAnswer = document.getElementById('correct').value;
                         wrongAnswers.push(correctAnswer);
 
-                        // Update the selected question and answers
                         categoryData.questions.quests[selectedQuestionIndex] = question;
                         categoryData.questions.answers[selectedQuestionIndex] = wrongAnswers;
-                        categoryData.questions.correct[selectedQuestionIndex] = wrongAnswers.length - 1; // Index of the correct answer
+                        categoryData.questions.correct[selectedQuestionIndex] = wrongAnswers.length - 1;
 
-                        // Save the updated data to localStorage
                         localStorage.setItem("quizz", JSON.stringify(data));
                     });
 
-                    // For demonstration, open the modal
                     modal.classList.remove('hidden');
                     showStep(currentStep);
                 }
             });
 
-            // For demonstration, open the modal
             modal.classList.remove('hidden');
         }
     }
