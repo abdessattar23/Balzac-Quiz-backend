@@ -12,7 +12,6 @@ let frenchLevel = document.querySelector(".nivau");
 let resultBox = document.querySelector(".result-box");
 // add the french level by score+ change box color
 
-
 // add the final score to local storage
 var allScores = JSON.parse(localStorage.getItem("allScores")) || {scores: [], level: []};
 var saveButton = document.querySelector(".save");
