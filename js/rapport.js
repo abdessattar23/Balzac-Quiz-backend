@@ -69,11 +69,12 @@ if (noMore != null){
         if (noMore.includes(4)){
         document.querySelector(".rapport-level").textContent = "NO" ;
         }
-        var coReponse = noMore.includes(1) == true ?  "No Ans": rapport.answer[i][rapport.selectedAns[i]];
+        
+        rapportContainer.innerHTML = "";
+        allQuests.forEach((q,i)=>{
+            var coReponse = noMore.includes(1) == true ?  "No Ans": rapport.answer[i][rapport.selectedAns[i]];
         var foReponse = noMore.includes(2) == true ?  "No Ans": rapport.answer[i][rapport.correctAns[i]];
         var quest = noMore.includes(0) == true ?  "No quest":q;
-        rapportContainer.innerHTML = "";
-        allQuests.forEach((_,i)=>{
             rapportContainer.innerHTML += `
          <div class="quest-box">
             <h2 class="rapport-quest">${quest}</h2>
